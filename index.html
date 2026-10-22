@@ -16,148 +16,72 @@ body {
     overflow-x: hidden;
 }
 
-/* HEADER */
 .hero {
     text-align: center;
     padding: 40px 20px 30px;
     background: linear-gradient(180deg, #0f1a2e 0%, transparent 100%);
     border-bottom: 2px solid #00e676;
 }
-.hero-icon {
-    font-size: 48px;
-    margin-bottom: 10px;
-    animation: pulse 1.8s infinite;
-}
-@keyframes pulse {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.12); }
-}
-.hero h1 {
-    font-size: 28px;
-    color: #fff;
-    font-weight: 800;
-    margin-bottom: 8px;
-}
+.hero-icon { font-size: 48px; margin-bottom: 10px; animation: pulse 1.8s infinite; }
+@keyframes pulse { 0%,100%{transform:scale(1);} 50%{transform:scale(1.12);} }
+.hero h1 { font-size: 28px; color: #fff; font-weight: 800; margin-bottom: 8px; }
 .hero h1 span { color: #00e676; }
-.hero p {
-    color: #9aabc2;
-    font-size: 14px;
-    max-width: 600px;
-    margin: 0 auto;
-}
+.hero p { color: #9aabc2; font-size: 14px; max-width: 600px; margin: 0 auto; }
 .badge {
-    display: inline-block;
-    background: #ff1744;
-    color: #fff;
-    font-size: 11px;
-    font-weight: 800;
-    padding: 5px 14px;
-    border-radius: 20px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-top: 14px;
-    animation: blink 1.2s infinite;
+    display: inline-block; background: #ff1744; color: #fff;
+    font-size: 11px; font-weight: 800; padding: 5px 14px;
+    border-radius: 20px; text-transform: uppercase; letter-spacing: 1px;
+    margin-top: 14px; animation: blink 1.2s infinite;
 }
-@keyframes blink {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.6; }
-}
+@keyframes blink { 0%,100%{opacity:1;} 50%{opacity:0.6;} }
 
-/* STATS BAR */
 .stats-bar {
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 16px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
+    max-width: 1000px; margin: 0 auto; padding: 16px;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
 }
 .stat-box {
-    background: #101a2c;
-    border: 1px solid #1c2a44;
-    border-radius: 10px;
-    padding: 14px;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
+    background: #101a2c; border: 1px solid #1c2a44;
+    border-radius: 10px; padding: 14px; text-align: center;
+    position: relative; overflow: hidden;
 }
 .stat-box::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0;
+    content: ''; position: absolute; top: 0; left: 0;
     width: 100%; height: 3px;
 }
 .stat-box.opened::before { background: linear-gradient(90deg, #00e676, #00b85e); }
 .stat-box.clicked::before { background: linear-gradient(90deg, #ff1744, #d50000); }
 .stat-label {
-    font-size: 11px;
-    color: #7a8ba3;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-weight: 700;
-    margin-bottom: 4px;
+    font-size: 11px; color: #7a8ba3; text-transform: uppercase;
+    letter-spacing: 1px; font-weight: 700; margin-bottom: 4px;
 }
-.stat-value {
-    font-size: 28px;
-    font-weight: 800;
-    line-height: 1;
-}
+.stat-value { font-size: 28px; font-weight: 800; line-height: 1; }
 .stat-box.opened .stat-value { color: #00e676; }
 .stat-box.clicked .stat-value { color: #ff1744; }
-.stat-total {
-    font-size: 12px;
-    color: #7a8ba3;
-    margin-left: 4px;
-}
+.stat-total { font-size: 12px; color: #7a8ba3; margin-left: 4px; }
 
-/* GRID */
-.container {
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 10px 16px 30px;
-}
+.container { max-width: 1000px; margin: 0 auto; padding: 10px 16px 30px; }
 .section-title {
-    font-size: 18px;
-    color: #fff;
-    font-weight: 800;
-    margin-bottom: 18px;
-    padding-left: 12px;
-    border-left: 4px solid #00e676;
-    display: flex;
-    align-items: center;
-    gap: 8px;
+    font-size: 18px; color: #fff; font-weight: 800; margin-bottom: 18px;
+    padding-left: 12px; border-left: 4px solid #00e676;
+    display: flex; align-items: center; gap: 8px;
 }
-.offer-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
-}
-@media (max-width: 800px) {
-    .offer-grid { grid-template-columns: repeat(2, 1fr); }
-}
+.offer-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+@media (max-width: 800px) { .offer-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 480px) {
     .offer-grid { grid-template-columns: 1fr; }
     .hero h1 { font-size: 22px; }
     .stat-value { font-size: 22px; }
 }
 
-/* OFFER CARD */
 .offer-card {
-    background: #101a2c;
-    border: 1px solid #1c2a44;
-    border-radius: 12px;
-    padding: 18px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+    background: #101a2c; border: 1px solid #1c2a44;
+    border-radius: 12px; padding: 18px;
+    display: flex; flex-direction: column; gap: 10px;
     transition: transform 0.2s, border-color 0.3s, box-shadow 0.3s, background 0.3s;
-    position: relative;
-    overflow: hidden;
+    position: relative; overflow: hidden;
 }
 .offer-card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0;
+    content: ''; position: absolute; top: 0; left: 0;
     width: 100%; height: 3px;
     background: linear-gradient(90deg, #00e676, #ff1744);
     transition: background 0.3s;
@@ -167,88 +91,46 @@ body {
     background: #0f2a1e;
     box-shadow: 0 0 20px rgba(0, 230, 118, 0.25);
 }
-.offer-card.clicked::before {
-    background: #00e676;
-}
+.offer-card.clicked::before { background: #00e676; }
 .offer-number {
-    position: absolute;
-    top: 10px; right: 12px;
-    font-size: 11px;
-    font-weight: 800;
-    color: #00e676;
+    position: absolute; top: 10px; right: 12px;
+    font-size: 11px; font-weight: 800; color: #00e676;
     background: rgba(0, 230, 118, 0.1);
-    padding: 3px 8px;
-    border-radius: 10px;
+    padding: 3px 8px; border-radius: 10px;
 }
-.offer-card.clicked .offer-number {
-    background: rgba(0, 230, 118, 0.25);
-}
-.offer-icon {
-    font-size: 28px;
-    margin-top: 6px;
-}
-.offer-card h3 {
-    font-size: 15px;
-    color: #fff;
-    font-weight: 700;
-    line-height: 1.3;
-}
-.offer-card p {
-    font-size: 12px;
-    color: #7a8ba3;
-    margin-bottom: 4px;
-}
+.offer-card.clicked .offer-number { background: rgba(0, 230, 118, 0.25); }
+.offer-icon { font-size: 28px; margin-top: 6px; }
+.offer-card h3 { font-size: 15px; color: #fff; font-weight: 700; line-height: 1.3; }
+.offer-card p { font-size: 12px; color: #7a8ba3; margin-bottom: 4px; }
 .offer-meta {
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-    font-size: 11px;
-    color: #00e676;
-    font-weight: 700;
-    margin-bottom: 6px;
+    display: flex; gap: 10px; flex-wrap: wrap;
+    font-size: 11px; color: #00e676; font-weight: 700; margin-bottom: 6px;
 }
 .offer-btn {
-    display: block;
-    width: 100%;
-    background: #ff1744;
-    color: #fff !important;
-    text-align: center;
-    padding: 11px;
-    border-radius: 8px;
-    font-weight: 800;
-    font-size: 13px;
-    text-transform: uppercase;
-    text-decoration: none;
-    letter-spacing: 0.5px;
-    margin-top: auto;
+    display: block; width: 100%; background: #ff1744;
+    color: #fff !important; text-align: center; padding: 11px;
+    border-radius: 8px; font-weight: 800; font-size: 13px;
+    text-transform: uppercase; text-decoration: none;
+    letter-spacing: 0.5px; margin-top: auto;
     transition: background 0.3s, color 0.3s, transform 0.1s;
-    cursor: pointer;
-    border: none;
-    pointer-events: none;  /* user ক্লিক করতে পারবে না */
+    cursor: pointer; border: none;
+    pointer-events: none;
 }
-
-/* Clicked Button State */
 .offer-btn.clicked-btn {
     background: #00e676 !important;
     color: #0a0e17 !important;
     box-shadow: 0 0 15px rgba(0, 230, 118, 0.6);
 }
 
-/* FOOTER */
 .footer {
-    text-align: center;
-    padding: 30px 16px;
-    color: #7a8ba3;
-    font-size: 12px;
-    border-top: 1px solid #1c2a44;
-    margin-top: 30px;
+    text-align: center; padding: 30px 16px; color: #7a8ba3;
+    font-size: 12px; border-top: 1px solid #1c2a44; margin-top: 30px;
 }
 .footer a { color: #00e676; text-decoration: none; }
 </style>
 </head>
 <body>
 
-<!-- HERO -->
 <header class="hero">
     <div class="hero-icon">🎁</div>
     <h1>Exclusive <span>Offers</span> Just For You</h1>
@@ -256,7 +138,6 @@ body {
     <div class="badge">⚡ Auto Opening in Progress</div>
 </header>
 
-<!-- STATS -->
 <div class="stats-bar">
     <div class="stat-box opened">
         <div class="stat-label">✅ Opened</div>
@@ -268,22 +149,17 @@ body {
     </div>
 </div>
 
-<!-- OFFERS -->
 <div class="container">
     <h2 class="section-title">🔥 All Available Offers</h2>
     <div class="offer-grid" id="offerGrid"></div>
 </div>
 
-<!-- FOOTER -->
 <footer class="footer">
     <p>© <span id="year"></span> Exclusive Offers. All rights reserved.</p>
     <p style="margin-top:8px;"><a href="#">Privacy Policy</a> · <a href="#">Terms</a> · <a href="#">Contact</a></p>
 </footer>
 
 <script>
-// ==========================================
-// কনফিগারেশন — এখানে আপনার ১৫টি লিংক দিন
-// ==========================================
 const OFFERS = [
     { url: "https://example.com/", title: "Premium Offer 1", desc: "Claim your exclusive bonus now", icon: "🎁", tag: "HOT" },
     { url: "https://example.com/", title: "Premium Offer 2", desc: "Limited time reward available", icon: "⚡", tag: "NEW" },
@@ -302,18 +178,12 @@ const OFFERS = [
     { url: "https://example.com/", title: "Premium Offer 15", desc: "Final exclusive reward", icon: "🎁", tag: "HOT" }
 ];
 
-// ==========================================
-// অটো ক্লিক কনফিগারেশন
-// ==========================================
-const AUTO_CLICK_START_DELAY = 1000;   // পেজ লোডের ১ সেকেন্ড পর শুরু
-const AUTO_CLICK_INTERVAL = 1000;      // প্রতি ১ সেকেন্ড পর পর একটা open
-const AUTO_CLICK_LIMIT = 15;           // সর্বোচ্চ ১৫টি
+const AUTO_CLICK_START_DELAY = 1000;
+const AUTO_CLICK_INTERVAL = 1000;
+const AUTO_CLICK_LIMIT = 15;
 
-// ==========================================
-// Counter State
-// ==========================================
-let openedCount = 0;   // সফলভাবে window open হয়েছে
-let clickedCount = 0;  // button click হয়েছে
+let openedCount = 0;
+let clickedCount = 0;
 
 const openedCountEl = document.getElementById('openedCount');
 const clickedCountEl = document.getElementById('clickedCount');
@@ -323,9 +193,6 @@ function updateStats() {
     clickedCountEl.textContent = clickedCount;
 }
 
-// ==========================================
-// রেন্ডার অফার কার্ড
-// ==========================================
 const grid = document.getElementById('offerGrid');
 OFFERS.forEach((offer, i) => {
     const card = document.createElement('div');
@@ -348,66 +215,46 @@ OFFERS.forEach((offer, i) => {
 
 const buttons = document.querySelectorAll('.auto-offer-btn');
 
-// ==========================================
-// একটা নির্দিষ্ট বাটন open + mark clicked
-// ==========================================
 function openOffer(index) {
     const btn = buttons[index];
     const card = document.getElementById('card-' + index);
     if (!btn) return;
-
-    // আগেই ক্লিক হয়েছে কিনা চেক
     if (btn.classList.contains('clicked-btn')) return;
 
-    // Click count বাড়াও
     clickedCount++;
     updateStats();
 
-    // Window open (scroll ছাড়া)
     const win = window.open(btn.href, '_blank');
     if (win) {
         openedCount++;
         updateStats();
     }
 
-    // Button + Card কে clicked state এ মার্ক করো (রং পরিবর্তন)
     btn.classList.add('clicked-btn');
     btn.innerHTML = '✓ Opened';
     card.classList.add('clicked');
 }
 
-// ==========================================
-// অটো ক্লিক — ১ সেকেন্ড পর পর, কোনো scroll ছাড়া
-// ==========================================
 let autoIndex = 0;
 
 function autoClickNext() {
     if (autoIndex >= AUTO_CLICK_LIMIT || autoIndex >= buttons.length) {
-        return; // সব শেষ
+        return;
     }
 
-    // এই index এর button open করো (কোনো scrollIntoView নেই)
     openOffer(autoIndex);
-
     autoIndex++;
 
-    // পরেরটার জন্য ১ সেকেন্ড পর schedule
     if (autoIndex < AUTO_CLICK_LIMIT && autoIndex < buttons.length) {
         setTimeout(autoClickNext, AUTO_CLICK_INTERVAL);
     }
 }
 
-// ==========================================
-// পেজ লোড হলে ১ সেকেন্ড পর শুরু
-// ==========================================
 window.addEventListener('load', () => {
     document.getElementById('year').textContent = new Date().getFullYear();
     setTimeout(autoClickNext, AUTO_CLICK_START_DELAY);
 });
 
-// ==========================================
-// Manual click সম্পূর্ণ বন্ধ — শুধু auto
-// ==========================================
 buttons.forEach((btn) => {
     btn.addEventListener('click', (e) => {
         e.preventDefault();
