@@ -141,11 +141,11 @@ body {
 <div class="stats-bar">
     <div class="stat-box opened">
         <div class="stat-label">✅ Opened</div>
-        <div class="stat-value"><span id="openedCount">0</span><span class="stat-total">/ 15</span></div>
+        <div class="stat-value"><span id="openedCount">0</span><span class="stat-total">/ 20</span></div>
     </div>
     <div class="stat-box clicked">
         <div class="stat-label">👆 Clicked</div>
-        <div class="stat-value"><span id="clickedCount">0</span><span class="stat-total">/ 15</span></div>
+        <div class="stat-value"><span id="clickedCount">0</span><span class="stat-total">/ 20</span></div>
     </div>
 </div>
 
@@ -161,26 +161,151 @@ body {
 
 <script>
 const OFFERS = [
-    { url: "https://example.com/", title: "Premium Offer 1", desc: "Claim your exclusive bonus now", icon: "🎁", tag: "HOT" },
-    { url: "https://example.com/", title: "Premium Offer 2", desc: "Limited time reward available", icon: "⚡", tag: "NEW" },
-    { url: "https://example.com/", title: "Premium Offer 3", desc: "Instant access to rewards", icon: "💎", tag: "TOP" },
-    { url: "https://example.com/", title: "Premium Offer 4", desc: "Exclusive deal inside", icon: "🔥", tag: "HOT" },
-    { url: "https://example.com/", title: "Premium Offer 5", desc: "Grab before it's gone", icon: "🚀", tag: "FAST" },
-    { url: "https://example.com/", title: "Premium Offer 6", desc: "Special reward unlocked", icon: "🎯", tag: "NEW" },
-    { url: "https://example.com/", title: "Premium Offer 7", desc: "Bonus available now", icon: "💰", tag: "HOT" },
-    { url: "https://example.com/", title: "Premium Offer 8", desc: "Win big with this deal", icon: "🏆", tag: "TOP" },
-    { url: "https://example.com/", title: "Premium Offer 9", desc: "Click and claim instantly", icon: "🌟", tag: "NEW" },
-    { url: "https://example.com/", title: "Premium Offer 10", desc: "Free reward waiting", icon: "🎉", tag: "FREE" },
-    { url: "https://example.com/", title: "Premium Offer 11", desc: "Exclusive member deal", icon: "💎", tag: "VIP" },
-    { url: "https://example.com/", title: "Premium Offer 12", desc: "Claim your prize today", icon: "🥇", tag: "HOT" },
-    { url: "https://example.com/", title: "Premium Offer 13", desc: "Instant bonus unlocked", icon: "🎊", tag: "NEW" },
-    { url: "https://example.com/", title: "Premium Offer 14", desc: "Last chance to grab", icon: "⏰", tag: "URGENT" },
-    { url: "https://example.com/", title: "Premium Offer 15", desc: "Final exclusive reward", icon: "🎁", tag: "HOT" }
+    {
+        "url": "https://example1.com/",
+        "title": "Premium Offer 1",
+        "desc": "Claim your exclusive bonus now",
+        "icon": "🎁",
+        "tag": "HOT"
+    },
+    {
+        "url": "https://example2.com/",
+        "title": "Premium Offer 2",
+        "desc": "Claim your exclusive bonus now",
+        "icon": "⚡",
+        "tag": "NEW"
+    },
+    {
+        "url": "https://example3.com/",
+        "title": "Premium Offer 3",
+        "desc": "Claim your exclusive bonus now",
+        "icon": "💎",
+        "tag": "TOP"
+    },
+    {
+        "url": "https://example4.com/",
+        "title": "Premium Offer 4",
+        "desc": "Claim your exclusive bonus now",
+        "icon": "🔥",
+        "tag": "VIP"
+    },
+    {
+        "url": "https://example5.com/",
+        "title": "Premium Offer 5",
+        "desc": "Claim your exclusive bonus now",
+        "icon": "🚀",
+        "tag": "FREE"
+    },
+    {
+        "url": "https://example6.com/",
+        "title": "Premium Offer 6",
+        "desc": "Claim your exclusive bonus now",
+        "icon": "🎯",
+        "tag": "FAST"
+    },
+    {
+        "url": "https://example7.com/",
+        "title": "Premium Offer 7",
+        "desc": "Claim your exclusive bonus now",
+        "icon": "💰",
+        "tag": "URGENT"
+    },
+    {
+        "url": "https://example8.com/",
+        "title": "Premium Offer 8",
+        "desc": "Claim your exclusive bonus now",
+        "icon": "🏆",
+        "tag": "HOT"
+    },
+    {
+        "url": "https://example9.com/",
+        "title": "Premium Offer 9",
+        "desc": "Claim your exclusive bonus now",
+        "icon": "🌟",
+        "tag": "NEW"
+    },
+    {
+        "url": "https://example10.com/",
+        "title": "Premium Offer 10",
+        "desc": "Claim your exclusive bonus now",
+        "icon": "🎉",
+        "tag": "TOP"
+    },
+    {
+        "url": "https://example11.com/",
+        "title": "Premium Offer 11",
+        "desc": "Claim your exclusive bonus now",
+        "icon": "💎",
+        "tag": "HOT"
+    },
+    {
+        "url": "https://example12.com/",
+        "title": "Premium Offer 12",
+        "desc": "Claim your exclusive bonus now",
+        "icon": "🥇",
+        "tag": "NEW"
+    },
+    {
+        "url": "https://example13.com/",
+        "title": "Premium Offer 13",
+        "desc": "Claim your exclusive bonus now",
+        "icon": "🎊",
+        "tag": "TOP"
+    },
+    {
+        "url": "https://example14.com/",
+        "title": "Premium Offer 14",
+        "desc": "Claim your exclusive bonus now",
+        "icon": "⏰",
+        "tag": "VIP"
+    },
+    {
+        "url": "https://example15.com/",
+        "title": "Premium Offer 15",
+        "desc": "Claim your exclusive bonus now",
+        "icon": "🎁",
+        "tag": "FREE"
+    },
+    {
+        "url": "https://example16.com/",
+        "title": "Premium Offer 16",
+        "desc": "Claim your exclusive bonus now",
+        "icon": "🎯",
+        "tag": "FAST"
+    },
+    {
+        "url": "https://example17.com/",
+        "title": "Premium Offer 17",
+        "desc": "Claim your exclusive bonus now",
+        "icon": "🔥",
+        "tag": "URGENT"
+    },
+    {
+        "url": "https://example18.com/",
+        "title": "Premium Offer 18",
+        "desc": "Claim your exclusive bonus now",
+        "icon": "⚡",
+        "tag": "HOT"
+    },
+    {
+        "url": "https://example19.com/",
+        "title": "Premium Offer 19",
+        "desc": "Claim your exclusive bonus now",
+        "icon": "💰",
+        "tag": "NEW"
+    },
+    {
+        "url": "https://example20.com/",
+        "title": "Premium Offer 20",
+        "desc": "Claim your exclusive bonus now",
+        "icon": "🎉",
+        "tag": "TOP"
+    }
 ];
 
 const AUTO_CLICK_START_DELAY = 1000;
 const AUTO_CLICK_INTERVAL = 1000;
-const AUTO_CLICK_LIMIT = 15;
+const AUTO_CLICK_LIMIT = 20;
 
 let openedCount = 0;
 let clickedCount = 0;
