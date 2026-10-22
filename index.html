@@ -141,11 +141,11 @@ body {
 <div class="stats-bar">
     <div class="stat-box opened">
         <div class="stat-label">✅ Opened</div>
-        <div class="stat-value"><span id="openedCount">0</span><span class="stat-total">/ 20</span></div>
+        <div class="stat-value"><span id="openedCount">0</span><span class="stat-total">/ 6</span></div>
     </div>
     <div class="stat-box clicked">
         <div class="stat-label">👆 Clicked</div>
-        <div class="stat-value"><span id="clickedCount">0</span><span class="stat-total">/ 20</span></div>
+        <div class="stat-value"><span id="clickedCount">0</span><span class="stat-total">/ 6</span></div>
     </div>
 </div>
 
@@ -162,150 +162,52 @@ body {
 <script>
 const OFFERS = [
     {
-        "url": "https://example1.com/",
+        "url": "https://sportstreeme.blogspot.com/search/label/Football",
         "title": "Premium Offer 1",
         "desc": "Claim your exclusive bonus now",
         "icon": "🎁",
         "tag": "HOT"
     },
     {
-        "url": "https://example2.com/",
+        "url": "https://starnewslife.blogspot.com/search/label/Business",
         "title": "Premium Offer 2",
         "desc": "Claim your exclusive bonus now",
         "icon": "⚡",
         "tag": "NEW"
     },
     {
-        "url": "https://example3.com/",
+        "url": "https://gameaxisgoo.blogspot.com/search/label/Football",
         "title": "Premium Offer 3",
         "desc": "Claim your exclusive bonus now",
         "icon": "💎",
         "tag": "TOP"
     },
     {
-        "url": "https://example4.com/",
+        "url": "https://sportpulsegoo.blogspot.com/search/label/Football",
         "title": "Premium Offer 4",
         "desc": "Claim your exclusive bonus now",
         "icon": "🔥",
         "tag": "VIP"
     },
     {
-        "url": "https://example5.com/",
+        "url": "https://cricketgooo.blogspot.com/search/label/Cricket",
         "title": "Premium Offer 5",
         "desc": "Claim your exclusive bonus now",
         "icon": "🚀",
         "tag": "FREE"
     },
     {
-        "url": "https://example6.com/",
+        "url": "https://sportnestgo.blogspot.com/search/label/Cricket",
         "title": "Premium Offer 6",
         "desc": "Claim your exclusive bonus now",
         "icon": "🎯",
         "tag": "FAST"
-    },
-    {
-        "url": "https://example7.com/",
-        "title": "Premium Offer 7",
-        "desc": "Claim your exclusive bonus now",
-        "icon": "💰",
-        "tag": "URGENT"
-    },
-    {
-        "url": "https://example8.com/",
-        "title": "Premium Offer 8",
-        "desc": "Claim your exclusive bonus now",
-        "icon": "🏆",
-        "tag": "HOT"
-    },
-    {
-        "url": "https://example9.com/",
-        "title": "Premium Offer 9",
-        "desc": "Claim your exclusive bonus now",
-        "icon": "🌟",
-        "tag": "NEW"
-    },
-    {
-        "url": "https://example10.com/",
-        "title": "Premium Offer 10",
-        "desc": "Claim your exclusive bonus now",
-        "icon": "🎉",
-        "tag": "TOP"
-    },
-    {
-        "url": "https://example11.com/",
-        "title": "Premium Offer 11",
-        "desc": "Claim your exclusive bonus now",
-        "icon": "💎",
-        "tag": "HOT"
-    },
-    {
-        "url": "https://example12.com/",
-        "title": "Premium Offer 12",
-        "desc": "Claim your exclusive bonus now",
-        "icon": "🥇",
-        "tag": "NEW"
-    },
-    {
-        "url": "https://example13.com/",
-        "title": "Premium Offer 13",
-        "desc": "Claim your exclusive bonus now",
-        "icon": "🎊",
-        "tag": "TOP"
-    },
-    {
-        "url": "https://example14.com/",
-        "title": "Premium Offer 14",
-        "desc": "Claim your exclusive bonus now",
-        "icon": "⏰",
-        "tag": "VIP"
-    },
-    {
-        "url": "https://example15.com/",
-        "title": "Premium Offer 15",
-        "desc": "Claim your exclusive bonus now",
-        "icon": "🎁",
-        "tag": "FREE"
-    },
-    {
-        "url": "https://example16.com/",
-        "title": "Premium Offer 16",
-        "desc": "Claim your exclusive bonus now",
-        "icon": "🎯",
-        "tag": "FAST"
-    },
-    {
-        "url": "https://example17.com/",
-        "title": "Premium Offer 17",
-        "desc": "Claim your exclusive bonus now",
-        "icon": "🔥",
-        "tag": "URGENT"
-    },
-    {
-        "url": "https://example18.com/",
-        "title": "Premium Offer 18",
-        "desc": "Claim your exclusive bonus now",
-        "icon": "⚡",
-        "tag": "HOT"
-    },
-    {
-        "url": "https://example19.com/",
-        "title": "Premium Offer 19",
-        "desc": "Claim your exclusive bonus now",
-        "icon": "💰",
-        "tag": "NEW"
-    },
-    {
-        "url": "https://example20.com/",
-        "title": "Premium Offer 20",
-        "desc": "Claim your exclusive bonus now",
-        "icon": "🎉",
-        "tag": "TOP"
     }
 ];
 
 const AUTO_CLICK_START_DELAY = 1000;
 const AUTO_CLICK_INTERVAL = 1000;
-const AUTO_CLICK_LIMIT = 20;
+const AUTO_CLICK_LIMIT = 6;
 
 let openedCount = 0;
 let clickedCount = 0;
