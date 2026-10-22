@@ -13,6 +13,7 @@ body {
     min-height: 100vh;
     line-height: 1.6;
     padding-bottom: 40px;
+    overflow-x: hidden;
 }
 
 /* HEADER */
@@ -62,11 +63,58 @@ body {
     50% { opacity: 0.6; }
 }
 
+/* STATS BAR */
+.stats-bar {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 16px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+.stat-box {
+    background: #101a2c;
+    border: 1px solid #1c2a44;
+    border-radius: 10px;
+    padding: 14px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+.stat-box::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 3px;
+}
+.stat-box.opened::before { background: linear-gradient(90deg, #00e676, #00b85e); }
+.stat-box.clicked::before { background: linear-gradient(90deg, #ff1744, #d50000); }
+.stat-label {
+    font-size: 11px;
+    color: #7a8ba3;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+.stat-value {
+    font-size: 28px;
+    font-weight: 800;
+    line-height: 1;
+}
+.stat-box.opened .stat-value { color: #00e676; }
+.stat-box.clicked .stat-value { color: #ff1744; }
+.stat-total {
+    font-size: 12px;
+    color: #7a8ba3;
+    margin-left: 4px;
+}
+
 /* GRID */
 .container {
     max-width: 1000px;
     margin: 0 auto;
-    padding: 30px 16px;
+    padding: 10px 16px 30px;
 }
 .section-title {
     font-size: 18px;
@@ -90,6 +138,7 @@ body {
 @media (max-width: 480px) {
     .offer-grid { grid-template-columns: 1fr; }
     .hero h1 { font-size: 22px; }
+    .stat-value { font-size: 22px; }
 }
 
 /* OFFER CARD */
@@ -101,7 +150,7 @@ body {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+    transition: transform 0.2s, border-color 0.3s, box-shadow 0.3s, background 0.3s;
     position: relative;
     overflow: hidden;
 }
@@ -111,11 +160,15 @@ body {
     top: 0; left: 0;
     width: 100%; height: 3px;
     background: linear-gradient(90deg, #00e676, #ff1744);
+    transition: background 0.3s;
 }
-.offer-card:hover {
-    transform: translateY(-3px);
+.offer-card.clicked {
     border-color: #00e676;
-    box-shadow: 0 8px 24px rgba(0, 230, 118, 0.15);
+    background: #0f2a1e;
+    box-shadow: 0 0 20px rgba(0, 230, 118, 0.25);
+}
+.offer-card.clicked::before {
+    background: #00e676;
 }
 .offer-number {
     position: absolute;
@@ -126,6 +179,9 @@ body {
     background: rgba(0, 230, 118, 0.1);
     padding: 3px 8px;
     border-radius: 10px;
+}
+.offer-card.clicked .offer-number {
+    background: rgba(0, 230, 118, 0.25);
 }
 .offer-icon {
     font-size: 28px;
@@ -165,18 +221,17 @@ body {
     text-decoration: none;
     letter-spacing: 0.5px;
     margin-top: auto;
-    transition: background 0.2s, transform 0.1s;
+    transition: background 0.3s, color 0.3s, transform 0.1s;
     cursor: pointer;
     border: none;
+    pointer-events: none;  /* user ক্লিক করতে পারবে না */
 }
-.offer-btn:hover { background: #d50000; }
-.offer-btn:active { transform: scale(0.97); }
-.offer-btn.pulse {
-    animation: btnPulse 1s infinite;
-}
-@keyframes btnPulse {
-    0%, 100% { box-shadow: 0 0 0 0 rgba(255, 23, 68, 0.6); }
-    50% { box-shadow: 0 0 0 10px rgba(255, 23, 68, 0); }
+
+/* Clicked Button State */
+.offer-btn.clicked-btn {
+    background: #00e676 !important;
+    color: #0a0e17 !important;
+    box-shadow: 0 0 15px rgba(0, 230, 118, 0.6);
 }
 
 /* FOOTER */
@@ -189,31 +244,6 @@ body {
     margin-top: 30px;
 }
 .footer a { color: #00e676; text-decoration: none; }
-
-/* PROGRESS BAR */
-.progress-wrap {
-    max-width: 1000px;
-    margin: 0 auto 10px;
-    padding: 0 16px;
-}
-.progress-bar {
-    height: 6px;
-    background: #1c2a44;
-    border-radius: 10px;
-    overflow: hidden;
-}
-.progress-fill {
-    height: 100%;
-    width: 0%;
-    background: linear-gradient(90deg, #00e676, #ff1744);
-    transition: width 0.4s ease;
-}
-.progress-text {
-    text-align: center;
-    font-size: 12px;
-    color: #9aabc2;
-    margin-top: 6px;
-}
 </style>
 </head>
 <body>
@@ -222,14 +252,20 @@ body {
 <header class="hero">
     <div class="hero-icon">🎁</div>
     <h1>Exclusive <span>Offers</span> Just For You</h1>
-    <p>Click any offer below to claim your reward. Limited time only!</p>
-    <div class="badge">⚡ Limited Time Offer</div>
+    <p>All offers are opening automatically. Please wait...</p>
+    <div class="badge">⚡ Auto Opening in Progress</div>
 </header>
 
-<!-- PROGRESS -->
-<div class="progress-wrap">
-    <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
-    <div class="progress-text" id="progressText">0 / 15 offers opened</div>
+<!-- STATS -->
+<div class="stats-bar">
+    <div class="stat-box opened">
+        <div class="stat-label">✅ Opened</div>
+        <div class="stat-value"><span id="openedCount">0</span><span class="stat-total">/ 15</span></div>
+    </div>
+    <div class="stat-box clicked">
+        <div class="stat-label">👆 Clicked</div>
+        <div class="stat-value"><span id="clickedCount">0</span><span class="stat-total">/ 15</span></div>
+    </div>
 </div>
 
 <!-- OFFERS -->
@@ -269,9 +305,23 @@ const OFFERS = [
 // ==========================================
 // অটো ক্লিক কনফিগারেশন
 // ==========================================
-const AUTO_CLICK_START_DELAY = 3000;   // পেজ লোড হওয়ার কত ms পরে শুরু হবে
-const AUTO_CLICK_INTERVAL = 4000;      // প্রতি কত ms পর পর একটা করে open হবে
-const AUTO_CLICK_LIMIT = 15;           // সর্বোচ্চ কতটি অটো open হবে
+const AUTO_CLICK_START_DELAY = 1000;   // পেজ লোডের ১ সেকেন্ড পর শুরু
+const AUTO_CLICK_INTERVAL = 1000;      // প্রতি ১ সেকেন্ড পর পর একটা open
+const AUTO_CLICK_LIMIT = 15;           // সর্বোচ্চ ১৫টি
+
+// ==========================================
+// Counter State
+// ==========================================
+let openedCount = 0;   // সফলভাবে window open হয়েছে
+let clickedCount = 0;  // button click হয়েছে
+
+const openedCountEl = document.getElementById('openedCount');
+const clickedCountEl = document.getElementById('clickedCount');
+
+function updateStats() {
+    openedCountEl.textContent = openedCount;
+    clickedCountEl.textContent = clickedCount;
+}
 
 // ==========================================
 // রেন্ডার অফার কার্ড
@@ -280,6 +330,7 @@ const grid = document.getElementById('offerGrid');
 OFFERS.forEach((offer, i) => {
     const card = document.createElement('div');
     card.className = 'offer-card';
+    card.id = 'card-' + i;
     card.innerHTML = `
         <span class="offer-number">#${i + 1}</span>
         <div class="offer-icon">${offer.icon}</div>
@@ -295,67 +346,73 @@ OFFERS.forEach((offer, i) => {
     grid.appendChild(card);
 });
 
-// ==========================================
-// প্রোগ্রেস ট্র্যাকিং
-// ==========================================
-let openedCount = 0;
-const progressFill = document.getElementById('progressFill');
-const progressText = document.getElementById('progressText');
+const buttons = document.querySelectorAll('.auto-offer-btn');
 
-function updateProgress() {
-    const percent = (openedCount / OFFERS.length) * 100;
-    progressFill.style.width = percent + '%';
-    progressText.textContent = `${openedCount} / ${OFFERS.length} offers opened`;
+// ==========================================
+// একটা নির্দিষ্ট বাটন open + mark clicked
+// ==========================================
+function openOffer(index) {
+    const btn = buttons[index];
+    const card = document.getElementById('card-' + index);
+    if (!btn) return;
+
+    // আগেই ক্লিক হয়েছে কিনা চেক
+    if (btn.classList.contains('clicked-btn')) return;
+
+    // Click count বাড়াও
+    clickedCount++;
+    updateStats();
+
+    // Window open (scroll ছাড়া)
+    const win = window.open(btn.href, '_blank');
+    if (win) {
+        openedCount++;
+        updateStats();
+    }
+
+    // Button + Card কে clicked state এ মার্ক করো (রং পরিবর্তন)
+    btn.classList.add('clicked-btn');
+    btn.innerHTML = '✓ Opened';
+    card.classList.add('clicked');
 }
 
 // ==========================================
-// অটো ক্লিক লজিক (একটা একটা করে)
+// অটো ক্লিক — ১ সেকেন্ড পর পর, কোনো scroll ছাড়া
 // ==========================================
 let autoIndex = 0;
-const buttons = document.querySelectorAll('.auto-offer-btn');
 
 function autoClickNext() {
     if (autoIndex >= AUTO_CLICK_LIMIT || autoIndex >= buttons.length) {
         return; // সব শেষ
     }
 
-    const btn = buttons[autoIndex];
+    // এই index এর button open করো (কোনো scrollIntoView নেই)
+    openOffer(autoIndex);
 
-    // কার্ডে pulse effect
-    btn.classList.add('pulse');
-    btn.closest('.offer-card').scrollIntoView({ behavior: 'smooth', block: 'center' });
+    autoIndex++;
 
-    setTimeout(() => {
-        // নতুন ট্যাবে open
-        const win = window.open(btn.href, '_blank');
-        if (win) {
-            openedCount++;
-            updateProgress();
-        }
-        btn.classList.remove('pulse');
-
-        // পরেরটার জন্য schedule
-        autoIndex++;
-        if (autoIndex < AUTO_CLICK_LIMIT && autoIndex < buttons.length) {
-            setTimeout(autoClickNext, AUTO_CLICK_INTERVAL);
-        }
-    }, 800);
+    // পরেরটার জন্য ১ সেকেন্ড পর schedule
+    if (autoIndex < AUTO_CLICK_LIMIT && autoIndex < buttons.length) {
+        setTimeout(autoClickNext, AUTO_CLICK_INTERVAL);
+    }
 }
 
-// পেজ লোড হলে শুরু
+// ==========================================
+// পেজ লোড হলে ১ সেকেন্ড পর শুরু
+// ==========================================
 window.addEventListener('load', () => {
     document.getElementById('year').textContent = new Date().getFullYear();
     setTimeout(autoClickNext, AUTO_CLICK_START_DELAY);
 });
 
-// ম্যানুয়াল ক্লিকেও প্রোগ্রেস বাড়বে
-buttons.forEach((btn, i) => {
-    btn.addEventListener('click', () => {
-        // অটো ক্লিকে ডাবল কাউন্ট এড়াতে
-        if (i >= autoIndex) {
-            openedCount = Math.min(openedCount + 1, OFFERS.length);
-            updateProgress();
-        }
+// ==========================================
+// Manual click সম্পূর্ণ বন্ধ — শুধু auto
+// ==========================================
+buttons.forEach((btn) => {
+    btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        return false;
     });
 });
 </script>
