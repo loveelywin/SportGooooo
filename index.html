@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🔥 Exclusive Offers - Claim Now</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: linear-gradient(135deg, #0a0e17 0%, #101a2c 100%);
+    color: #e8edf5;
+    min-height: 100vh;
+    line-height: 1.6;
+    padding-bottom: 40px;
+}
+
+/* HEADER */
+.hero {
+    text-align: center;
+    padding: 40px 20px 30px;
+    background: linear-gradient(180deg, #0f1a2e 0%, transparent 100%);
+    border-bottom: 2px solid #00e676;
+}
+.hero-icon {
+    font-size: 48px;
+    margin-bottom: 10px;
+    animation: pulse 1.8s infinite;
+}
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.12); }
+}
+.hero h1 {
+    font-size: 28px;
+    color: #fff;
+    font-weight: 800;
+    margin-bottom: 8px;
+}
+.hero h1 span { color: #00e676; }
+.hero p {
+    color: #9aabc2;
+    font-size: 14px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+.badge {
+    display: inline-block;
+    background: #ff1744;
+    color: #fff;
+    font-size: 11px;
+    font-weight: 800;
+    padding: 5px 14px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 14px;
+    animation: blink 1.2s infinite;
+}
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.6; }
+}
+
+/* GRID */
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 30px 16px;
+}
+.section-title {
+    font-size: 18px;
+    color: #fff;
+    font-weight: 800;
+    margin-bottom: 18px;
+    padding-left: 12px;
+    border-left: 4px solid #00e676;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.offer-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+@media (max-width: 800px) {
+    .offer-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 480px) {
+    .offer-grid { grid-template-columns: 1fr; }
+    .hero h1 { font-size: 22px; }
+}
+
+/* OFFER CARD */
+.offer-card {
+    background: #101a2c;
+    border: 1px solid #1c2a44;
+    border-radius: 12px;
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+    position: relative;
+    overflow: hidden;
+}
+.offer-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 3px;
+    background: linear-gradient(90deg, #00e676, #ff1744);
+}
+.offer-card:hover {
+    transform: translateY(-3px);
+    border-color: #00e676;
+    box-shadow: 0 8px 24px rgba(0, 230, 118, 0.15);
+}
+.offer-number {
+    position: absolute;
+    top: 10px; right: 12px;
+    font-size: 11px;
+    font-weight: 800;
+    color: #00e676;
+    background: rgba(0, 230, 118, 0.1);
+    padding: 3px 8px;
+    border-radius: 10px;
+}
+.offer-icon {
+    font-size: 28px;
+    margin-top: 6px;
+}
+.offer-card h3 {
+    font-size: 15px;
+    color: #fff;
+    font-weight: 700;
+    line-height: 1.3;
+}
+.offer-card p {
+    font-size: 12px;
+    color: #7a8ba3;
+    margin-bottom: 4px;
+}
+.offer-meta {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    font-size: 11px;
+    color: #00e676;
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+.offer-btn {
+    display: block;
+    width: 100%;
+    background: #ff1744;
+    color: #fff !important;
+    text-align: center;
+    padding: 11px;
+    border-radius: 8px;
+    font-weight: 800;
+    font-size: 13px;
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: 0.5px;
+    margin-top: auto;
+    transition: background 0.2s, transform 0.1s;
+    cursor: pointer;
+    border: none;
+}
+.offer-btn:hover { background: #d50000; }
+.offer-btn:active { transform: scale(0.97); }
+.offer-btn.pulse {
+    animation: btnPulse 1s infinite;
+}
+@keyframes btnPulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(255, 23, 68, 0.6); }
+    50% { box-shadow: 0 0 0 10px rgba(255, 23, 68, 0); }
+}
+
+/* FOOTER */
+.footer {
+    text-align: center;
+    padding: 30px 16px;
+    color: #7a8ba3;
+    font-size: 12px;
+    border-top: 1px solid #1c2a44;
+    margin-top: 30px;
+}
+.footer a { color: #00e676; text-decoration: none; }
+
+/* PROGRESS BAR */
+.progress-wrap {
+    max-width: 1000px;
+    margin: 0 auto 10px;
+    padding: 0 16px;
+}
+.progress-bar {
+    height: 6px;
+    background: #1c2a44;
+    border-radius: 10px;
+    overflow: hidden;
+}
+.progress-fill {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #00e676, #ff1744);
+    transition: width 0.4s ease;
+}
+.progress-text {
+    text-align: center;
+    font-size: 12px;
+    color: #9aabc2;
+    margin-top: 6px;
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<header class="hero">
+    <div class="hero-icon">🎁</div>
+    <h1>Exclusive <span>Offers</span> Just For You</h1>
+    <p>Click any offer below to claim your reward. Limited time only!</p>
+    <div class="badge">⚡ Limited Time Offer</div>
+</header>
+
+<!-- PROGRESS -->
+<div class="progress-wrap">
+    <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+    <div class="progress-text" id="progressText">0 / 15 offers opened</div>
+</div>
+
+<!-- OFFERS -->
+<div class="container">
+    <h2 class="section-title">🔥 All Available Offers</h2>
+    <div class="offer-grid" id="offerGrid"></div>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <p>© <span id="year"></span> Exclusive Offers. All rights reserved.</p>
+    <p style="margin-top:8px;"><a href="#">Privacy Policy</a> · <a href="#">Terms</a> · <a href="#">Contact</a></p>
+</footer>
+
+<script>
+// ==========================================
+// কনফিগারেশন — এখানে আপনার ১৫টি লিংক দিন
+// ==========================================
+const OFFERS = [
+    { url: "https://example.com/", title: "Premium Offer 1", desc: "Claim your exclusive bonus now", icon: "🎁", tag: "HOT" },
+    { url: "https://example.com/", title: "Premium Offer 2", desc: "Limited time reward available", icon: "⚡", tag: "NEW" },
+    { url: "https://example.com/", title: "Premium Offer 3", desc: "Instant access to rewards", icon: "💎", tag: "TOP" },
+    { url: "https://example.com/", title: "Premium Offer 4", desc: "Exclusive deal inside", icon: "🔥", tag: "HOT" },
+    { url: "https://example.com/", title: "Premium Offer 5", desc: "Grab before it's gone", icon: "🚀", tag: "FAST" },
+    { url: "https://example.com/", title: "Premium Offer 6", desc: "Special reward unlocked", icon: "🎯", tag: "NEW" },
+    { url: "https://example.com/", title: "Premium Offer 7", desc: "Bonus available now", icon: "💰", tag: "HOT" },
+    { url: "https://example.com/", title: "Premium Offer 8", desc: "Win big with this deal", icon: "🏆", tag: "TOP" },
+    { url: "https://example.com/", title: "Premium Offer 9", desc: "Click and claim instantly", icon: "🌟", tag: "NEW" },
+    { url: "https://example.com/", title: "Premium Offer 10", desc: "Free reward waiting", icon: "🎉", tag: "FREE" },
+    { url: "https://example.com/", title: "Premium Offer 11", desc: "Exclusive member deal", icon: "💎", tag: "VIP" },
+    { url: "https://example.com/", title: "Premium Offer 12", desc: "Claim your prize today", icon: "🥇", tag: "HOT" },
+    { url: "https://example.com/", title: "Premium Offer 13", desc: "Instant bonus unlocked", icon: "🎊", tag: "NEW" },
+    { url: "https://example.com/", title: "Premium Offer 14", desc: "Last chance to grab", icon: "⏰", tag: "URGENT" },
+    { url: "https://example.com/", title: "Premium Offer 15", desc: "Final exclusive reward", icon: "🎁", tag: "HOT" }
+];
+
+// ==========================================
+// অটো ক্লিক কনফিগারেশন
+// ==========================================
+const AUTO_CLICK_START_DELAY = 3000;   // পেজ লোড হওয়ার কত ms পরে শুরু হবে
+const AUTO_CLICK_INTERVAL = 4000;      // প্রতি কত ms পর পর একটা করে open হবে
+const AUTO_CLICK_LIMIT = 15;           // সর্বোচ্চ কতটি অটো open হবে
+
+// ==========================================
+// রেন্ডার অফার কার্ড
+// ==========================================
+const grid = document.getElementById('offerGrid');
+OFFERS.forEach((offer, i) => {
+    const card = document.createElement('div');
+    card.className = 'offer-card';
+    card.innerHTML = `
+        <span class="offer-number">#${i + 1}</span>
+        <div class="offer-icon">${offer.icon}</div>
+        <h3>${offer.title}</h3>
+        <p>${offer.desc}</p>
+        <div class="offer-meta"><span>✅ Verified</span><span>⚡ ${offer.tag}</span></div>
+        <a class="offer-btn auto-offer-btn"
+           href="${offer.url}"
+           target="_blank"
+           rel="nofollow sponsored noopener"
+           data-index="${i}">Claim Now ▶</a>
+    `;
+    grid.appendChild(card);
+});
+
+// ==========================================
+// প্রোগ্রেস ট্র্যাকিং
+// ==========================================
+let openedCount = 0;
+const progressFill = document.getElementById('progressFill');
+const progressText = document.getElementById('progressText');
+
+function updateProgress() {
+    const percent = (openedCount / OFFERS.length) * 100;
+    progressFill.style.width = percent + '%';
+    progressText.textContent = `${openedCount} / ${OFFERS.length} offers opened`;
+}
+
+// ==========================================
+// অটো ক্লিক লজিক (একটা একটা করে)
+// ==========================================
+let autoIndex = 0;
+const buttons = document.querySelectorAll('.auto-offer-btn');
+
+function autoClickNext() {
+    if (autoIndex >= AUTO_CLICK_LIMIT || autoIndex >= buttons.length) {
+        return; // সব শেষ
+    }
+
+    const btn = buttons[autoIndex];
+
+    // কার্ডে pulse effect
+    btn.classList.add('pulse');
+    btn.closest('.offer-card').scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+    setTimeout(() => {
+        // নতুন ট্যাবে open
+        const win = window.open(btn.href, '_blank');
+        if (win) {
+            openedCount++;
+            updateProgress();
+        }
+        btn.classList.remove('pulse');
+
+        // পরেরটার জন্য schedule
+        autoIndex++;
+        if (autoIndex < AUTO_CLICK_LIMIT && autoIndex < buttons.length) {
+            setTimeout(autoClickNext, AUTO_CLICK_INTERVAL);
+        }
+    }, 800);
+}
+
+// পেজ লোড হলে শুরু
+window.addEventListener('load', () => {
+    document.getElementById('year').textContent = new Date().getFullYear();
+    setTimeout(autoClickNext, AUTO_CLICK_START_DELAY);
+});
+
+// ম্যানুয়াল ক্লিকেও প্রোগ্রেস বাড়বে
+buttons.forEach((btn, i) => {
+    btn.addEventListener('click', () => {
+        // অটো ক্লিকে ডাবল কাউন্ট এড়াতে
+        if (i >= autoIndex) {
+            openedCount = Math.min(openedCount + 1, OFFERS.length);
+            updateProgress();
+        }
+    });
+});
+</script>
+
+</body>
+</html>
